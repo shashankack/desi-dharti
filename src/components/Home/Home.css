@@ -21,10 +21,13 @@
 
 .home-title {
   font-size: 80px;
-  color: #ebdccb;
-  font-weight: 800;
-  font-family: "Playfair Display";
-  width: 52%;
+  color: var(--beige);
+  font-weight: 600;
+  font-family: "Helvetica";
+  text-transform: uppercase;
+  text-shadow: ;
+  width: 35%;
+  line-height: 70px;
 }
 
 .home-text {
@@ -33,7 +36,7 @@
 }
 
 .cta-button {
-  margin-top: 5px;
+  margin-top: 40px;
   background-color: #352320;
   color: #ebdccb;
   padding: 12px 20px;

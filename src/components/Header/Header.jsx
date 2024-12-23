@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 import { HashLink } from "react-router-hash-link";
+import { gsap } from "gsap";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
@@ -15,6 +18,38 @@ const Header = () => {
       setIsVisible(true); // Show header on scroll up
     }
     setLastScrollY(currentScrollY);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => {
+      const isOpening = !prev;
+      if (isOpening) {
+        gsap.to(menuRef.current, {
+          duration: 0.5,
+          opacity: 1,
+          height: "auto",
+          ease: "power3.out",
+        });
+      } else {
+        gsap.to(menuRef.current, {
+          duration: 0.5,
+          opacity: 0,
+          height: 0,
+          ease: "power3.in",
+        });
+      }
+      return isOpening;
+    });
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    gsap.to(menuRef.current, {
+      duration: 0.5,
+      opacity: 0,
+      height: 0,
+      ease: "power3.in",
+    });
   };
 
   useEffect(() => {
@@ -45,6 +80,35 @@ const Header = () => {
             Blog
           </HashLink>
           <HashLink smooth to="#contact">
+            Contact Us
+          </HashLink>
+        </ul>
+      </nav>
+
+      <div
+        className={`hamburger ${isMenuOpen ? "active" : ""}`}
+        onClick={toggleMenu}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav className="mobile-menu" ref={menuRef}>
+        <ul className="nav-list">
+          <HashLink smooth to="#home" onClick={closeMenu}>
+            Home
+          </HashLink>
+          <HashLink smooth to="#about" onClick={closeMenu}>
+            About Us
+          </HashLink>
+          <HashLink smooth to="#products" onClick={closeMenu}>
+            Product
+          </HashLink>
+          <HashLink smooth to="#blog" onClick={closeMenu}>
+            Blog
+          </HashLink>
+          <HashLink smooth to="#contact" onClick={closeMenu}>
             Contact Us
           </HashLink>
         </ul>
