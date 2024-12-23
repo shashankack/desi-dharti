@@ -38,7 +38,7 @@ const Header = () => {
           <HashLink smooth to="#about">
             About Us
           </HashLink>
-          <HashLink smooth to="#product">
+          <HashLink smooth to="#products">
             Product
           </HashLink>
           <HashLink smooth to="#blog">

@@ -3,7 +3,7 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <section className="home-section">
+    <section className="home-section" id="home">
       <div className="home-content">
         <h1 className="home-title">
           Bringing the essence of Nature to your Plate
