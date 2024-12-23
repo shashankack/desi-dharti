@@ -1,55 +1,36 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.png";
 import { HashLink } from "react-router-hash-link";
-import { gsap } from "gsap";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef(null);
+  const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
+  const [desiDropdownOpen, setDesiDropdownOpen] = useState(false);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      setIsVisible(false); // Hide header on scroll down
+      setIsVisible(false);
     } else {
-      setIsVisible(true); // Show header on scroll up
+      setIsVisible(true);
     }
     setLastScrollY(currentScrollY);
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => {
-      const isOpening = !prev;
-      if (isOpening) {
-        gsap.to(menuRef.current, {
-          duration: 0.5,
-          opacity: 1,
-          height: "auto",
-          ease: "power3.out",
-        });
-      } else {
-        gsap.to(menuRef.current, {
-          duration: 0.5,
-          opacity: 0,
-          height: 0,
-          ease: "power3.in",
-        });
-      }
-      return isOpening;
-    });
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-    gsap.to(menuRef.current, {
-      duration: 0.5,
-      opacity: 0,
-      height: 0,
-      ease: "power3.in",
-    });
+  const toggleShopDropdown = () => {
+    setShopDropdownOpen((prev) => !prev);
+  };
+
+  const toggleDesiDropdown = () => {
+    setDesiDropdownOpen((prev) => !prev);
   };
 
   useEffect(() => {
@@ -64,53 +45,67 @@ const Header = () => {
       <HashLink className="logo" smooth to="#home">
         <img src={logo} alt="Logo" />
       </HashLink>
-
       <nav>
         <ul className="nav-list">
-          <HashLink smooth to="#home">
-            Home
-          </HashLink>
-          <HashLink smooth to="#about">
-            About Us
-          </HashLink>
-          <HashLink smooth to="#products">
-            Product
-          </HashLink>
-          <HashLink smooth to="#blog">
-            Blog
-          </HashLink>
-          <HashLink smooth to="#contact">
-            Contact Us
-          </HashLink>
+          <li>
+            <HashLink smooth to="#home">Home</HashLink>
+          </li>
+          <li>
+            <HashLink smooth to="#about">About Us</HashLink>
+          </li>
+          <li
+            className="dropdown"
+            onMouseEnter={toggleShopDropdown}
+            onMouseLeave={toggleShopDropdown}
+          >
+            <HashLink smooth to="#shop">
+              Shop <span className={`arrow ${shopDropdownOpen ? "open" : ""}`}><RiArrowDownSLine /></span>
+            </HashLink>
+            {shopDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li><HashLink smooth to="#milk">Milk</HashLink></li>
+                <li><HashLink smooth to="#ghee">Ghee</HashLink></li>
+                <li><HashLink smooth to="#buttermilk">Buttermilk</HashLink></li>
+              </ul>
+            )}
+          </li>
+          <li
+            className="dropdown"
+            onMouseEnter={toggleDesiDropdown}
+            onMouseLeave={toggleDesiDropdown}
+          >
+            <HashLink smooth to="#contact">
+              Why Desi Dharti <span className={`arrow ${desiDropdownOpen ? "open" : ""}`}><RiArrowDownSLine /></span>
+            </HashLink>
+            {desiDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li><HashLink smooth to="#ourfarm">Our Farm</HashLink></li>
+                <li><HashLink smooth to="#ourstory">Our Story</HashLink></li>
+                <li><HashLink smooth to="#ourcows">Our Cows</HashLink></li>
+              </ul>
+            )}
+          </li>
+          <li>
+            <HashLink smooth to="#blog">Blog</HashLink>
+          </li>
         </ul>
       </nav>
-
-      <div
-        className={`hamburger ${isMenuOpen ? "active" : ""}`}
-        onClick={toggleMenu}
-      >
+      <div className={`hamburger ${isMenuOpen ? "active" : ""}`} onClick={toggleMenu}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-
-      <nav className="mobile-menu" ref={menuRef}>
+      <nav className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
         <ul className="nav-list">
-          <HashLink smooth to="#home" onClick={closeMenu}>
-            Home
-          </HashLink>
-          <HashLink smooth to="#about" onClick={closeMenu}>
-            About Us
-          </HashLink>
-          <HashLink smooth to="#products" onClick={closeMenu}>
-            Product
-          </HashLink>
-          <HashLink smooth to="#blog" onClick={closeMenu}>
-            Blog
-          </HashLink>
-          <HashLink smooth to="#contact" onClick={closeMenu}>
-            Contact Us
-          </HashLink>
+          <li><HashLink smooth to="#home">Home</HashLink></li>
+          <li><HashLink smooth to="#about">About Us</HashLink></li>
+          <li><HashLink smooth to="#milk">Milk</HashLink></li>
+          <li><HashLink smooth to="#ghee">Ghee</HashLink></li>
+          <li><HashLink smooth to="#buttermilk">Buttermilk</HashLink></li>
+          <li><HashLink smooth to="#ourfarm">Our Farm</HashLink></li>
+          <li><HashLink smooth to="#ourstory">Our Story</HashLink></li>
+          <li><HashLink smooth to="#ourcows">Our Cows</HashLink></li>
+          <li><HashLink smooth to="#blog">Blog</HashLink></li>
         </ul>
       </nav>
     </header>
