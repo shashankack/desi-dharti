@@ -1,0 +1,54 @@
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("../../assets/about-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto;
+  position: relative;
+  padding: 50px 0;
+}
+
+.bg-vector {
+  margin-top: 15%;
+  width: 100%;
+  height: auto;
+}
+
+.about-title {
+  top: 15%;
+  font-size: 40px;
+  text-transform: uppercase;
+  position: absolute;
+  font-family: "Playfair Display";
+  font-size: 54px;
+  color: #352320;
+  font-weight: 800;
+}
+
+.about-image-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  gap: 8em;
+}
+.about-image {
+  margin: 0 auto;
+  width: 350px;
+  border-radius: 10%;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.about-text-container {
+  margin-top: 30%;
+  font-weight: 700;
+  font-size: 24px;
+  color: #352320;
+  width: 70%;
+  font-family: "Montserrat";
+  text-align: center;
+  position: absolute;
+}
