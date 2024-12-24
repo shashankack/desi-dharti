@@ -8,7 +8,6 @@ import Footer from "./Footer/Footer";
 const Pages = () => {
   return (
     <>
-      <Header />
       <Home />
       <About />
       <Products />

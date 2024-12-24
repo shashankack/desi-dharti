@@ -6,7 +6,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [lastScrollY, setLastScrollY] = useState(10);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
   const [desiDropdownOpen, setDesiDropdownOpen] = useState(false);
@@ -42,13 +42,13 @@ const Header = () => {
 
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
-      <HashLink className="logo" smooth to="#home">
+      <HashLink className="logo" smooth to="/">
         <img src={logo} alt="Logo" />
       </HashLink>
       <nav>
         <ul className="nav-list">
           <li>
-            <HashLink smooth to="#home">Home</HashLink>
+            <HashLink smooth to="/">Home</HashLink>
           </li>
           <li>
             <HashLink smooth to="#about">About Us</HashLink>
@@ -86,7 +86,7 @@ const Header = () => {
             )}
           </li>
           <li>
-            <HashLink smooth to="#blog">Blog</HashLink>
+            <HashLink smooth to="blog">Blog</HashLink>
           </li>
         </ul>
       </nav>
