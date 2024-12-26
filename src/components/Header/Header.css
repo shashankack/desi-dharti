@@ -173,6 +173,17 @@
   }
   
   .logo {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 10px 10px;
+  }
+  
+  .logo {
     width: 45%;
   }
+  
 }
