@@ -3,52 +3,93 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("../../assets/about-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   height: auto;
   position: relative;
-  padding: 50px 0;
-}
-
-.bg-vector {
-  margin-top: 15%;
-  width: 100%;
-  height: auto;
+  padding: 3% 15% 20px;
+  background-color: var(--white);
 }
 
 .about-title {
-  top: 15%;
-  font-size: 40px;
-  text-transform: uppercase;
-  position: absolute;
-  font-family: "Playfair Display";
-  font-size: 54px;
-  color: #352320;
-  font-weight: 800;
+  font-size: 48px;
+  font-weight: 600;
+  font-family: "Bray Notes";
+  letter-spacing: 6px;
+  color: var(--brown);
+  margin-bottom: 20px;
 }
 
-.about-image-container {
+.about-text {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Montserrat";
+  color: var(--brown);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.insta-grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.insta-grid-container .button {
+  margin-top: 10px;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "QuickSand";
+  color: var(--beige);
+  background-color: var(--brown);
+  border: 1px solid var(--brown);
+  padding: 1% 1.5%;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: all 0.5s ease;
+  box-shadow: 4px 4px 0px 1px var(--yellow);
+}
+
+.insta-grid-container .button:hover {
+  background-color: var(--yellow);
+  cursor: pointer;
+  color: var(--brown);
+  box-shadow: 4px 4px 0px 1px var(--brown);
+  transition: all 0.5s ease;
+}
+
+.insta-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  position: absolute;
-  gap: 8em;
-}
-.about-image {
-  margin: 0 auto;
-  width: 350px;
-  border-radius: 10%;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  gap: 20px;
+  z-index: 2;
 }
 
-.about-text-container {
-  margin-top: 30%;
-  font-weight: 700;
-  font-size: 24px;
-  color: #352320;
-  width: 70%;
-  font-family: "Montserrat";
-  text-align: center;
+.insta-card {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(53, 35, 32, 0.5);
+  
+  transition: all 0.3s ease;
+}
+
+.insta-card:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.insta-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-vector {
+  width: 100%;
   position: absolute;
+  object-fit: cover;
+  bottom: -50px;
+  opacity: 0.8;
 }

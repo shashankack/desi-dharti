@@ -2,6 +2,12 @@ import React, { useEffect, useRef } from "react";
 import "./Blog.css";
 import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
+import adBanner from "../../assets/ad-banner-1.jpg";
+
+import thumbnail1 from "../../assets/blog-thumbnail-1.jpg";
+import thumbnail2 from "../../assets/blog-thumbnail-2.jpg";
+import thumbnail3 from "../../assets/blog-thumbnail-3.jpg";
+import thumbnail4 from "../../assets/blog-thumbnail-4.jpg";
 
 const Blog = () => {
   const navigate = useNavigate();
@@ -11,33 +17,33 @@ const Blog = () => {
     {
       id: 1,
       title: "Ghee: Dairy Without the Discomfort",
-      content:
+      description:
         "Lactose intolerance doesn't mean you have to give up on dairy entirely, especially when it's a time-honored superfood that is naturally free of lactose and casein. For those with lactose sensitivity, ghee offers a rich, flavorful, and nutritious alternative.",
-      image: "https://placehold.co/600x400",
+      image: thumbnail1,
       redirect: "/blog/1",
     },
     {
       id: 2,
       title: "Why A2 Cow Milk is Better",
-      content:
+      description:
         "A2 cow milk is easier to digest and is packed with nutrients. Discover why it's becoming a popular choice for health enthusiasts.",
-      image: "https://placehold.co/200x200",
+      image: thumbnail2,
       redirect: "/blog/2",
     },
     {
       id: 3,
       title: "The Story of Our Farm",
-      content:
+      description:
         "From humble beginnings to a sustainable future, read about the journey of our organic farm and its impact on the community.",
-      image: "https://placehold.co/200x200",
+      image: thumbnail3,
       redirect: "/blog/3",
     },
     {
       id: 4,
       title: "Organic Farming for Health",
-      content:
+      description:
         "Learn how organic farming benefits health and the environment, making it a sustainable choice for the future.",
-      image: "https://placehold.co/200x200",
+      image: thumbnail4,
       redirect: "/blog/4",
     },
   ];
@@ -48,35 +54,18 @@ const Blog = () => {
 
   useEffect(() => {
     // Animate Main Story
-    const mainStory =
-      blogContainerRef.current.querySelector(".blog-main-story");
+    const cards = blogContainerRef.current.querySelectorAll(".blog-card");
     gsap.fromTo(
-      mainStory,
+      cards,
       {
         opacity: 0,
-        scale: 0.7,
+        scale: 0.8,
       },
       {
         opacity: 1,
         scale: 1,
         duration: 1,
-        ease: "power3.out",
-      }
-    );
-
-    // Animate Side Stories
-    const sideStories =
-      blogContainerRef.current.querySelectorAll(".blog-card-side");
-    gsap.fromTo(
-      sideStories,
-      {
-        opacity: 0,
-        scale: 0.7,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
+        stagger: 0.2,
         ease: "power3.out",
       }
     );
@@ -85,43 +74,25 @@ const Blog = () => {
   return (
     <section className="blog-section">
       <div className="blog-container" ref={blogContainerRef}>
-        {/* Main Story */}
-        <div
-          className="blog-main-story"
-          onClick={() => handleCardClick(blogContent[0].redirect)}
-        >
-          <img
-            src={blogContent[0].image}
-            alt={blogContent[0].title}
-            className="blog-image-main"
-          />
-          <div className="blog-main-content">
-            <h2 className="blog-title-main">{blogContent[0].title}</h2>
-            <p className="blog-text-main">{blogContent[0].content}</p>
-          </div>
-        </div>
-
-        {/* Side Stories */}
-        <div className="blog-side-stories">
-          {blogContent.slice(1).map((blog) => (
-            <div
-              className="blog-card-side"
-              key={blog.id}
-              onClick={() => handleCardClick(blog.redirect)}
-            >
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="blog-image-side"
-              />
-              <div className="blog-side-content">
-                <h2 className="blog-title-side">{blog.title}</h2>
-                <p className="blog-text-side">{blog.content}</p>
-              </div>
+        {blogContent.map((blog) => (
+          <div
+            key={blog.id}
+            className="blog-card"
+            onClick={() => handleCardClick(blog.redirect)}
+          >
+            <div className="blog-card-image">
+              <img src={blog.image} alt={blog.title} />
             </div>
-          ))}
-        </div>
+            <div className="blog-card-content">
+              <h3>{blog.title}</h3>
+              <p>{blog.description}</p>
+              <button onClick={() => handleCardClick(blog.redirect)}>Read More...</button>
+            </div>
+          </div>
+        ))}
       </div>
+      <img src={adBanner} alt="" className="ad-banner" />
+      <button className="ad-button">Explore</button>
     </section>
   );
 };

@@ -168,4 +168,11 @@
   .hamburger {
     display: flex;
   }
+  .header {
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    width: 45%;
+  }
 }

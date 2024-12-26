@@ -8,7 +8,6 @@ const Footer = () => {
     <footer>
       <div className="footer-container">
         <div className="footer-vector">
-          <img src={footerVector} />
         </div>
         <div className="footer-left">
           <img src={footerLogo} alt="Footer Logo" className="footer-logo" />
