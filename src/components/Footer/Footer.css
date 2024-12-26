@@ -39,47 +39,109 @@
   font-size: 1.1rem;
 }
 
-.footer-center h2 {
-    font-weight: 600;
-    font-family: "Montserrat";
+.footer-section {
+  display: flex;
+  flex-direction: column;
 }
 
-.footer-center p {
-    font-family: "Nunito Sans";
-  
+.footer-center h2 {
+  font-weight: 600;
+  font-family: "Montserrat";
+  cursor: pointer;
+}
+
+.footer-center ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.footer-center ul.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.footer-center ul.open {
+  max-height: 200px;
+  opacity: 1;
 }
 
 .footer-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  font-family: "Montserrat";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-us-btn {
+  padding: 5px 20px;
+  background-color: transparent;
+  color: var(--brown);
+  border: 2px solid var(--brown);
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-us-btn:hover {
+  background-color: var(--brown);
+  color: var(--beige);
+  transition: 0.3s;
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.socials a {
+  color: var(--brown);
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  scale: 1.1;
+  transition: 0.3s;
 }
 
 @media screen and (max-width: 768px) {
   .footer-container {
+    height: auto;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
+    padding: 1rem 0;
+    gap: 20px;
   }
 
   .footer-left {
-    width: 100%;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .footer-logo {
+    width: 125px;
+    margin-bottom: 20px;
+  }
+
+  .footer-left p {
     text-align: center;
   }
 
   .footer-center {
+    gap: 10px;
     flex-direction: column;
-    gap: 20px;
   }
 
   .footer-right {
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
   }
-  
+
 }

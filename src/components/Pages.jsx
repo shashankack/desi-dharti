@@ -5,8 +5,8 @@ import About  from "./About/About";
 const Pages = () => {
   return (
     <>
-      {/* <Home />
-      <About /> */}
+      <Home />
+      {/* <About /> */}
     </>
   );
 };
