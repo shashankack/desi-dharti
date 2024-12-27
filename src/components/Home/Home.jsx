@@ -12,10 +12,11 @@ import ghee from "../../assets/ghee.png";
 import carouselImg1 from "../../assets/carousel-card-1.png";
 import carouselImg2 from "../../assets/carousel-card-2.png";
 import carouselImg3 from "../../assets/carousel-card-3.png";
-import stepsVector from "../../assets/steps-of-prep.jpg";
+
 import aboutUsCard1 from "../../assets/about-us-card-1.jpg";
 import aboutUsCard2 from "../../assets/about-us-card-2.jpg";
 
+import home_video from "../../assets/home-video.mp4";
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
@@ -153,7 +154,14 @@ const Home = () => {
               <img src={aboutUsCard2} />
             </div>
           </div>
-          {/* <img src={stepsVector} alt="" className="steps-vector" /> */}
+          <video
+            src={home_video}
+            playsInline
+            autoPlay
+            muted
+            loop
+            className="home-video"
+          />
         </div>
       </section>
     </>

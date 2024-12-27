@@ -86,12 +86,16 @@ const Blog = () => {
             <div className="blog-card-content">
               <h3>{blog.title}</h3>
               <p>{blog.description}</p>
-              <button onClick={() => handleCardClick(blog.redirect)}>Read More...</button>
+              <button onClick={() => handleCardClick(blog.redirect)}>
+                Read More...
+              </button>
             </div>
           </div>
         ))}
       </div>
-      <img src={adBanner} alt="" className="ad-banner" />
+      <div className="ad-banner-wrapper">
+        <img src={adBanner} alt="" className="ad-banner" />
+      </div>
       <button className="ad-button">Explore</button>
     </section>
   );

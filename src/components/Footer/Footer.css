@@ -123,11 +123,12 @@
   .footer-left {
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    line-height: 17px;
   }
 
   .footer-logo {
-    width: 125px;
+    width: 80px;
     margin-bottom: 20px;
   }
 
@@ -136,8 +137,14 @@
   }
 
   .footer-center {
+    font-size: small;
     gap: 10px;
     flex-direction: column;
+  }
+
+  .footer-center li {
+    font-size: .9rem;
+    font-family: "Montserrat";
   }
 
   .footer-right {

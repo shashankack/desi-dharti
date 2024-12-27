@@ -5,7 +5,7 @@
   flex-direction: column;
   height: auto;
   position: relative;
-  padding: 3% 15% 20px;
+  padding: 1% 15% 20px;
   background-color: var(--white);
 }
 
@@ -15,7 +15,7 @@
   font-family: "Bray Notes";
   letter-spacing: 6px;
   color: var(--brown);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .about-text {
@@ -92,4 +92,36 @@
   object-fit: cover;
   bottom: -50px;
   opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .about-section {
+    padding: 10% 5% 20px;
+  }
+
+  .about-title {
+    font-size: 32px;
+    letter-spacing: 4px;
+  }
+
+  .about-text {
+    font-size: 12px;
+  }
+
+  .insta-grid {
+    gap: 5px;
+  }
+
+  .insta-grid-container .button {
+    font-size: 24px;
+  }
+
+  .insta-card {
+    height: auto;
+  }
+
+  .about-vector {
+    bottom: -20px;
+  }
+  
 }

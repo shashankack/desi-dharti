@@ -64,7 +64,7 @@ const About = () => {
   ];
 
   return (
-    <section className="about-section" id="about">
+    <section className="about-section" id="about-us">
       <h1 className="about-title">Welome To Desi Dharti</h1>
       <div className="about-text">
         <p>

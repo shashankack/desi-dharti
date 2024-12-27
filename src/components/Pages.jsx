@@ -6,7 +6,7 @@ const Pages = () => {
   return (
     <>
       <Home />
-      {/* <About /> */}
+      <About />
     </>
   );
 };

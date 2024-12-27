@@ -101,6 +101,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   margin: 40px 0 0;
+  position: relative;
 }
 
 .ad-button {
@@ -127,7 +128,21 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .blog-section {
+    padding: 100px 10px 0;
+  }
+
   .blog-container {
     grid-template-columns: 1fr;
+  }
+
+  .blog-card-image {
+    height: 250px;
+  }
+
+  .ad-button {
+    top: 258.6%;
+    font-size: 10px;
+    padding: 1px 10px;
   }
 }
