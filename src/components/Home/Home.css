@@ -226,7 +226,7 @@ body {
   }
 
   .home-section-two {
-    padding: 5% 2% 2%;
+    padding: 5% 1%;
   }
 
   .product-cards-inner-container {
@@ -243,14 +243,19 @@ body {
 }
 
 @media screen and (max-width: 480px) {
+  .home-section-three{
+    padding: 0 1%;
+  }
+
   .product-cards-inner-container {
     flex-direction: column;
-    gap: 10px;
+    gap: 40px;
     width: auto;
   }
 
   .home-video {
-    height: 300px;
+    margin-top: -5px;
+    height: 440px;
     width: 100%;
   }
 }
