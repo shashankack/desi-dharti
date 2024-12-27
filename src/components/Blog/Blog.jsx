@@ -93,10 +93,7 @@ const Blog = () => {
           </div>
         ))}
       </div>
-      <div className="ad-banner-wrapper">
         <img src={adBanner} alt="" className="ad-banner" />
-      </div>
-      <button className="ad-button">Explore</button>
     </section>
   );
 };

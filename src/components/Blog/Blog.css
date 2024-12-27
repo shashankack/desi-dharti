@@ -104,27 +104,6 @@
   position: relative;
 }
 
-.ad-button {
-  margin-top: 20px;
-  padding: 5px 20px;
-  background-color: transparent;
-  color: var(--brown);
-  border: 2px solid var(--brown);
-  border-radius: 20px;
-  font-size: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-  position: absolute;
-  top: 166%;
-  left: 8%;
-}
-.ad-button:hover {
-  background-color: var(--brown);
-  color: var(--beige);
-  transition: 0.3s;
-}
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -140,9 +119,4 @@
     height: 250px;
   }
 
-  .ad-button {
-    top: 258.6%;
-    font-size: 10px;
-    padding: 1px 10px;
-  }
 }

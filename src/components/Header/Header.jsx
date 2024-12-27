@@ -156,7 +156,7 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <HashLink smooth to="#about" onClick={closeMenu}>
+            <HashLink smooth to="#about-us" onClick={closeMenu}>
               About
             </HashLink>
           </li>
