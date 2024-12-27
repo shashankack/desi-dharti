@@ -139,7 +139,7 @@
   .footer-center {
     font-size: small;
     gap: 10px;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .footer-center li {

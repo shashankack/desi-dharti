@@ -221,7 +221,7 @@ const Header = () => {
             )}
           </li>
           <li>
-            <a href="#blogs" onClick={closeMenu}>
+            <a href="blog" onClick={closeMenu}>
               Blogs
             </a>
           </li>

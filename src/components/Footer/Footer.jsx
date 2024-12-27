@@ -1,35 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Footer.css";
 import footerLogo from "../../assets/logo.png";
 
 import { FaInstagram, FaFacebook, FaGooglePlusG } from "react-icons/fa";
 
 const Footer = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
-  const [openSection, setOpenSection] = useState(null);
-
-  // Update screen size state on window resize
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 768);
-      if (window.innerWidth > 768) {
-        setOpenSection(null); // Reset openSection on larger screens
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const handleToggle = (section) => {
-    if (isSmallScreen) {
-      setOpenSection((prev) => (prev === section ? null : section));
-    }
-  };
-
-  const isOpen = (section) =>
-    !isSmallScreen || openSection === section;
-
   return (
     <footer>
       <div className="footer-container">
@@ -47,13 +22,8 @@ const Footer = () => {
         <div className="footer-center">
           {/* Services Section */}
           <div className="footer-section">
-            <h2
-              onClick={() => handleToggle("services")}
-              className="collapsible"
-            >
-              Services
-            </h2>
-            <ul className={isOpen("services") ? "open" : "collapsed"}>
+            <h2 className="footer-title">Services</h2>
+            <ul>
               <li>Shop</li>
               <li>Track Your Order</li>
               <li>Our Story</li>
@@ -64,13 +34,8 @@ const Footer = () => {
 
           {/* Policies Section */}
           <div className="footer-section">
-            <h2
-              onClick={() => handleToggle("policies")}
-              className="collapsible"
-            >
-              Policies
-            </h2>
-            <ul className={isOpen("policies") ? "open" : "collapsed"}>
+            <h2 className="footer-title">Policies</h2>
+            <ul>
               <li>Privacy Policy</li>
               <li>Shipping Policy</li>
               <li>Refund Policy</li>
