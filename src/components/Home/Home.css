@@ -238,7 +238,7 @@ body {
   .image-cards {
     flex-direction: column;
     width: 100%;
-    gap: 20px;
+    gap: 30px;
   }
 }
 
@@ -251,10 +251,11 @@ body {
     flex-direction: column;
     gap: 40px;
     width: auto;
+    padding: 5%;
   }
 
   .home-video {
-    margin-top: -5px;
+    
     height: 440px;
     width: 100%;
   }
