@@ -151,9 +151,7 @@ const Header = () => {
       <nav className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
         <ul className="nav-list-mobile">
           <li>
-            <a href="#home" onClick={closeMenu}>
-              Home
-            </a>
+            <a href="/" onClick={closeMenu} >Home</a>
           </li>
           <li>
             <HashLink smooth to="#about-us" onClick={closeMenu}>
