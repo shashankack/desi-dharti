@@ -8,7 +8,11 @@ import "swiper/css/autoplay";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Home.css";
+
 import ghee from "../../assets/ghee.png";
+import milk from "../../assets/milk.png";
+import butterMilk from "../../assets/buttermilk.png";
+
 import carouselImg1 from "../../assets/carousel-card-1.png";
 import carouselImg2 from "../../assets/carousel-card-2.png";
 import carouselImg3 from "../../assets/carousel-card-3.png";
@@ -21,7 +25,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const sectionRefs = useRef([]);
-  const swiperRef = useRef(null);
 
   useEffect(() => {
     sectionRefs.current.forEach((section, index) => {
@@ -51,7 +54,7 @@ const Home = () => {
       id: 1,
       name: "Milk",
       description: "Fresh milk from our farm",
-      image: ghee,
+      image: milk,
       redirect: "/products/milk",
     },
     {
@@ -65,7 +68,7 @@ const Home = () => {
       id: 3,
       name: "Butter Milk",
       description: "Fresh butter milk",
-      image: ghee,
+      image: butterMilk,
       redirect: "/products/butter-milk",
     },
   ];
@@ -126,7 +129,7 @@ const Home = () => {
             {products.map((product) => (
               <div key={product.id} className="product-card">
                 <div className="image-background">
-                  <img src={product.image} alt={product.name} />
+                  <img src={product.image} alt={product.name} className={ product.name === "Ghee" ? "ghee-image" : "other-images"} />
                 </div>
                 <div className="product-card-title">
                   <h2>{product.name}</h2>
