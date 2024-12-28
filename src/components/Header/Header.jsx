@@ -151,7 +151,9 @@ const Header = () => {
       <nav className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
         <ul className="nav-list-mobile">
           <li>
-            <a href="/" onClick={closeMenu} >Home</a>
+            <a href="/" onClick={closeMenu}>
+              Home
+            </a>
           </li>
           <li>
             <HashLink smooth to="#about-us" onClick={closeMenu}>
@@ -193,7 +195,7 @@ const Header = () => {
               onClick={toggleDesiDropdown}
               className="dropdown-toggle-mobile"
             >
-              Why Kesariya Farm{" "}
+              Why Desi Dharti{" "}
               <RiArrowDownSLine
                 className={`arrow ${desiDropdownOpen ? "open" : ""}`}
               />
